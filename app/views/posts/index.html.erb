@@ -1,0 +1,10 @@
+<h1><%= @user.username %>'s Posts</h1>
+<!-- <p>Find me in app/views/posts/index.html.erb</p> -->
+<% @user.posts.reverse_each do |post| %>
+  <div>
+    <h3><%= link_to post.title, user_post_path(@user.id, post.id) %></h3>
+  </div>
+  <div>
+    <%= post.content %>
+  </div>
+<% end %>

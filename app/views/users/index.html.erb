@@ -1,0 +1,26 @@
+<%= page_heading('Users Index') %>
+<!-- <p>Find me in app/views/users/index.html.erb</p> -->
+
+<%= content_tag :h1, 'This is a generated H1 tag' %>
+<%= content_tag :p, "This is a paragraph tag #{@users.first.username}", class: 'test-class' %>
+<%= content_tag :ul do %>
+  <% @users.each do |user| %>
+    <%= content_tag :li, user.username %>
+  <% end %>
+<% end %>
+
+<div><%= select_date(Time.now + 10.days) %></div>
+<div><%= collection_select(:user, :user_id, User.all, :id, :username) %></div>
+
+<% @users.each do |user| %>
+  <%# binding.pry %>
+  <h3>
+    <%= link_to user.username, user_path(user) %>
+  </h3>
+  <p>
+    <%= user.email %>
+  </p>
+  <p>
+    <%= time_ago_in_words(user.created_at) %> ago
+  </p>
+<% end %>

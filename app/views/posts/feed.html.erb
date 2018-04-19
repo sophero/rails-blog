@@ -1,0 +1,7 @@
+<h1>Posts#feed</h1>
+<p>Find me in app/views/posts/feed.html.erb</p>
+
+<% @posts.each do |post| %>
+  <h3><%= post.title %></h3>
+  <p><%= post.content %></p>
+<% end %>
